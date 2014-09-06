@@ -25,8 +25,10 @@ public class MatchParser {
     public double Parse(String s) throws Exception {
     	for(int i = 0; i < s.length(); i++) {
     		if(java.lang.Character.isDigit(s.charAt(i))) {
-    			return Double.parseDouble(s);
+    			if(i == s.length()-1)
+                    return Double.parseDouble(s);
     		}
+            else break;
     	}
         Result result = PlusMinus(s);
         double output = result.acc;
